@@ -9,7 +9,7 @@ export default function Hero() {
   const waHref = `https://wa.me/${CLINIC.whatsapp}?text=${encodeURIComponent(CLINIC.whatsapp_message)}`;
 
   return (
-    <section data-testid="hero-section" className="relative pt-32 lg:pt-40 pb-16 lg:pb-24 overflow-hidden">
+    <section data-testid="hero-section" className="relative pt-16 lg:pt-24 pb-16 lg:pb-24 overflow-hidden">
       {/* Botanical decorative blobs */}
       <div aria-hidden className="pointer-events-none absolute -top-16 -left-24 h-96 w-96 rounded-full bg-forest-200/40 blur-3xl" />
       <div aria-hidden className="pointer-events-none absolute -bottom-24 right-0 h-[420px] w-[420px] rounded-full bg-gold/10 blur-3xl" />

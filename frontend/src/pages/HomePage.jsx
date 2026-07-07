@@ -1,4 +1,5 @@
 import React from "react";
+import SplashBanner from "@/components/site/SplashBanner";
 import Hero from "@/components/site/Hero";
 import TreatmentsGrid from "@/components/site/TreatmentsGrid";
 import AboutSection from "@/components/site/AboutSection";
@@ -13,6 +14,7 @@ export default function HomePage() {
   const { t } = useLang();
   return (
     <div data-testid="home-page">
+      <SplashBanner />
       <Hero />
 
       {/* Statement strip */}
