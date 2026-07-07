@@ -1,0 +1,27 @@
+{
+  "summary": "First-finish smoke test for Chahal Ayurvedic Clinic bilingual site. All 5 backend endpoints and all frontend flows verified via Playwright against public REACT_APP_BACKEND_URL.",
+  "tested_scope": ["backend", "frontend", "integration"],
+  "passed": [
+    "GET /api/ returns 200 with message 'Chahal Ayurvedic Clinic API is running'",
+    "GET /api/clinic-info returns full clinic JSON (name, doctor, phone, whatsapp, address, tagline_en, tagline_pa)",
+    "POST /api/appointments creates entry with id + created_at; returns 422 when required fields (name/problem) missing",
+    "GET /api/appointments returns list including just-created appointment (most recent first)",
+    "POST /api/contact with phone succeeds; returns 400 'Provide phone or email' when both missing",
+    "Home page shows 'Authentic Ayurveda', Punjabi tagline 'ਹਰ ਬਿਮਾਰੀ ਦਾ ਕੁਦਰਤੀ ਇਲਾਜ', doctor name",
+    "Hero CTAs present: hero-book-btn, hero-call-btn, hero-whatsapp-btn",
+    "All navbar links (home/about/treatments/gallery/contact) navigate to correct routes",
+    "Language toggle switches EN↔PA content; persists via localStorage key 'cac-lang' (not 'lang')",
+    "Treatments page renders 12 treatment cards including treatment-card-pcod, hair-fall, infertility",
+    "Gallery page shows 7 items (>= 5 required)",
+    "Contact form submission: filled name/phone/problem/date, clicked submit, sonner toast appeared ('Appointment request received. We will call you soon.'), fields reset; backend verified via GET returning new appointment",
+    "Floating WhatsApp button present with correct wa.me/919417258159 href",
+    "Footer displays phone 94172-58159",
+    "Mobile toggle opens mobile nav on 390x844 viewport (verified via screenshot)"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": "Language persistence uses localStorage key 'cac-lang' per implementation; requirement stated 'localStorage' which is satisfied. Test initially checked wrong key but code confirms persistence works correctly."
+}

@@ -1,75 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+Gurmukhi:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-    margin: 0;
-    font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-    font-family:
-        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
+        --background: 46 33% 97%;             /* #FAF9F6 cream */
+        --foreground: 155 45% 10%;            /* deep forest */
         --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
-        --radius: 0.5rem;
-    }
-    .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        --card-foreground: 155 45% 10%;
+        --popover: 46 33% 97%;
+        --popover-foreground: 155 45% 10%;
+        --primary: 148 68% 19%;               /* forest-800 #0F5132 */
+        --primary-foreground: 46 33% 97%;
+        --secondary: 44 33% 92%;
+        --secondary-foreground: 155 45% 10%;
+        --muted: 44 20% 90%;
+        --muted-foreground: 155 12% 30%;
+        --accent: 33 60% 47%;                 /* gold */
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 74% 42%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 148 25% 85%;
+        --input: 148 20% 88%;
+        --ring: 148 55% 30%;
+        --radius: 1rem;
     }
 }
 
@@ -77,39 +33,42 @@ code {
     * {
         @apply border-border;
     }
-    body {
-        @apply bg-background text-foreground;
+    html {
+        scroll-behavior: smooth;
     }
+    body {
+        @apply bg-background text-foreground antialiased;
+        font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+        background-color: #FAF9F6;
+        background-image:
+            radial-gradient(1200px 500px at -10% -10%, rgba(43,122,75,0.06), transparent 60%),
+            radial-gradient(900px 500px at 110% 10%, rgba(197,131,43,0.05), transparent 60%),
+            url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.06 0 0 0 0 0.20 0 0 0 0 0.12 0 0 0 0.035 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+        background-attachment: fixed;
+    }
+    h1, h2, h3, h4, .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .font-punjabi { font-family: 'Noto Sans Gurmukhi', system-ui, sans-serif; }
+    ::selection { background: #0F5132; color: #FAF9F6; }
+}
+
+@layer components {
+    .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
+    .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-forest-800 px-6 py-3 text-sm font-semibold tracking-wide text-cream-50 shadow-[0_10px_30px_-10px_rgba(15,81,50,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-forest-900; }
+    .btn-outline { @apply inline-flex items-center justify-center gap-2 rounded-full border border-forest-800/25 bg-transparent px-6 py-3 text-sm font-semibold tracking-wide text-forest-900 transition-all duration-300 hover:-translate-y-0.5 hover:border-forest-800 hover:bg-forest-50; }
+    .btn-whatsapp { @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1EBE5D]; }
+    .eyebrow { @apply inline-flex items-center gap-2 rounded-full bg-forest-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-forest-800 ring-1 ring-forest-800/10; }
+    .card-soft { @apply rounded-3xl bg-white/80 backdrop-blur-sm ring-1 ring-forest-900/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)]; }
+    .divider-leaf { background-image: linear-gradient(90deg, transparent, rgba(15,81,50,0.25), transparent); height: 1px; }
 }
 
 @layer base {
-    [data-debug-wrapper="true"] {
-        display: contents !important;
-    }
-
+    [data-debug-wrapper="true"] { display: contents !important; }
     [data-debug-wrapper="true"] > * {
-        margin-left: inherit;
-        margin-right: inherit;
-        margin-top: inherit;
-        margin-bottom: inherit;
-        padding-left: inherit;
-        padding-right: inherit;
-        padding-top: inherit;
-        padding-bottom: inherit;
-        column-gap: inherit;
-        row-gap: inherit;
-        gap: inherit;
-        border-left-width: inherit;
-        border-right-width: inherit;
-        border-top-width: inherit;
-        border-bottom-width: inherit;
-        border-left-style: inherit;
-        border-right-style: inherit;
-        border-top-style: inherit;
-        border-bottom-style: inherit;
-        border-left-color: inherit;
-        border-right-color: inherit;
-        border-top-color: inherit;
-        border-bottom-color: inherit;
+        margin-left: inherit; margin-right: inherit; margin-top: inherit; margin-bottom: inherit;
+        padding-left: inherit; padding-right: inherit; padding-top: inherit; padding-bottom: inherit;
+        column-gap: inherit; row-gap: inherit; gap: inherit;
+        border-left-width: inherit; border-right-width: inherit; border-top-width: inherit; border-bottom-width: inherit;
+        border-left-style: inherit; border-right-style: inherit; border-top-style: inherit; border-bottom-style: inherit;
+        border-left-color: inherit; border-right-color: inherit; border-top-color: inherit; border-bottom-color: inherit;
     }
 }
