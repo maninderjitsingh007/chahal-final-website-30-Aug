@@ -1,0 +1,162 @@
+{
+  "theme": {
+    "primary_archetype": "1 (Organic & Earthy)",
+    "color_mode": "Light",
+    "vibe": "Authentic, Trustworthy, Natural, Traditional yet Premium",
+    "context": "Healthcare / Clinic Marketing Website"
+  },
+  "typography": {
+    "fonts": {
+      "headings": "Cormorant Garamond",
+      "body": "Manrope",
+      "punjabi": "Noto Sans Gurmukhi"
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight",
+      "h2": "text-3xl sm:text-4xl tracking-tight text-forest-900",
+      "h3": "text-xl sm:text-2xl text-forest-800",
+      "body": "text-base text-gray-700 leading-relaxed",
+      "small": "text-sm text-gray-500",
+      "punjabi_tagline": "text-xl sm:text-2xl font-punjabi text-forest-700"
+    },
+    "instructions": "Use Cormorant Garamond for all English headings to give an editorial, traditional, premium feel. Use Manrope for English body text for clean readability. Use Noto Sans Gurmukhi for all Punjabi text. Do not bold headings excessively; let the serif font's character show (font-medium or font-semibold)."
+  },
+  "color_palette": {
+    "background": {
+      "primary": "#FAF9F6",
+      "secondary": "#F3F0E6",
+      "tertiary": "#E9E5D9"
+    },
+    "brand": {
+      "forest_50": "#F2F7F4",
+      "forest_100": "#E1EFE6",
+      "forest_500": "#2B7A4B",
+      "forest_700": "#165C35",
+      "forest_800": "#0F5132",
+      "forest_900": "#0A3622",
+      "accent_gold": "#C5832B",
+      "accent_terracotta": "#D97757"
+    },
+    "text": {
+      "primary": "#1F2937",
+      "secondary": "#4B5563",
+      "inverse": "#FFFFFF"
+    },
+    "instructions": "Avoid pure white. The background should feel like natural paper or cream. The primary brand color is forest_800 (#0F5132). Accent colors (gold/terracotta) should be used sparingly for CTA buttons or highlights."
+  },
+  "layout_and_spacing": {
+    "spacing_scale": "Generous spacing. Use p-8, p-12, py-20, py-24 for sections to let content breathe.",
+    "border_radius": "Soft and natural. Use rounded-2xl or rounded-3xl for cards and images. Avoid sharp edges.",
+    "shadows": "Ambient and soft. shadow-[0_8px_30px_rgb(0,0,0,0.04)] for cards.",
+    "textures": "Apply a very subtle CSS noise/grain overlay on background to remove digital flatness, if possible.",
+    "surfaces": {
+      "cards": "Flat cream/white with a subtle 1px border (border-forest-900/10) and soft shadow.",
+      "navbar": "Glassmorphism: backdrop-blur-md bg-[#FAF9F6]/80 with border-b border-forest-900/10."
+    }
+  },
+  "components": {
+    "NavBar": {
+      "description": "Sticky top nav. Left: Clinic Name in Serif. Right: English/Punjabi toggle, Contact link, and Book Appointment button.",
+      "styles": "fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md bg-[#FAF9F6]/90 border-b border-forest-900/10 py-4"
+    },
+    "Hero": {
+      "description": "Split layout or large centered hero. English clinic name, Doctor name (Dr. Rajgurbir Singh Chahal (BAMS)), and Punjabi tagline 'ਹਰ ਬਿਮਾਰੀ ਦਾ ਕੁਦਰਤੀ ਇਲਾਜ'.",
+      "buttons": [
+        "Primary CTA: Book Appointment (Forest Green bg, White text)",
+        "Secondary CTA: Call Now (Outline button)",
+        "WhatsApp CTA: (Green WhatsApp color bg, icon + text)"
+      ],
+      "overlay": "If using a background image, use bg-white/40 to bg-white/70 gradient overlay to ensure text readability."
+    },
+    "TreatmentsGrid": {
+      "description": "Bento grid or 3x4 grid for the 12 conditions: Infertility, Cataract/White water, Childless couples, Hair fall, PCOD, Stomach diseases, Skin/Joint pain, Sugar/BP/Thyroid, Jaundice/Liver, Physical weakness, Child diseases, Constipation/Gas/Acidity.",
+      "card_style": "bg-white p-6 rounded-2xl border border-forest-900/10 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col items-center text-center",
+      "icons": "Use lucide-react icons for each condition (e.g., Activity, Baby, Droplet, Sun, Pill)."
+    },
+    "AboutDoctor": {
+      "description": "Image of doctor consulting on one side, text on the other. Emphasize BAMS degree and authentic Ayurvedic expertise.",
+      "image_style": "rounded-3xl object-cover h-[500px] w-full"
+    },
+    "AyurvedaPhilosophy": {
+      "description": "Section highlighting the natural healing approach. Use mortar/pestle image.",
+      "style": "bg-forest-900 text-[#FAF9F6] py-24 px-8 text-center or split layout. Serif headings in white/cream."
+    },
+    "Gallery": {
+      "description": "Masonry or symmetrical grid of clinic, herbs, and medicine images.",
+      "style": "gap-4 grid grid-cols-2 md:grid-cols-3 or 4"
+    },
+    "Testimonials": {
+      "description": "Patient reviews carousel or grid. Use soft background (secondary cream).",
+      "card_style": "bg-white p-8 rounded-3xl shadow-sm text-center"
+    },
+    "ContactAndBooking": {
+      "description": "Form section and clinic details.",
+      "form_fields": ["Name", "Phone", "Problem/Condition", "Preferred Date", "Message"],
+      "contact_info": "H.No. 258, Crossing Street No. 2, Guru Teg Bahadur Colony, Bus Stand to College Road, Malerkotla-148023, PB. Phone: 94172-58159",
+      "form_style": "Use Shadcn Form, Input, Textarea, Button. Custom styled with forest-800 primary color."
+    },
+    "FloatingWhatsApp": {
+      "description": "A floating action button at the bottom right for quick WhatsApp chat.",
+      "style": "fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center cursor-pointer"
+    }
+  },
+  "media": {
+    "images": [
+      {
+        "category": "Hero / Philosophy Background",
+        "url": "https://images.pexels.com/photos/33410911/pexels-photo-33410911.jpeg",
+        "description": "Mortar and pestle with fresh rosemary"
+      },
+      {
+        "category": "Ayurveda Herbs / Ingredients",
+        "url": "https://images.pexels.com/photos/7615621/pexels-photo-7615621.jpeg",
+        "description": "Herbal supplements and green leaves flat lay"
+      },
+      {
+        "category": "Ayurveda Herbs / Neem",
+        "url": "https://images.pexels.com/photos/28511113/pexels-photo-28511113.jpeg",
+        "description": "Detailed shot of neem tree leaves"
+      },
+      {
+        "category": "About Doctor / Consultation",
+        "url": "https://images.pexels.com/photos/7578797/pexels-photo-7578797.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Doctor discussing health chart with patient"
+      },
+      {
+        "category": "Clinic Interior",
+        "url": "https://images.pexels.com/photos/5619462/pexels-photo-5619462.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Professional clinic room setup"
+      },
+      {
+        "category": "Ayurvedic Medicine Bottles",
+        "url": "https://images.pexels.com/photos/7526013/pexels-photo-7526013.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Dried herbs and essential oils on yellow background"
+      },
+      {
+        "category": "Meditation / Wellness (Testimonials)",
+        "url": "https://images.pexels.com/photos/6246200/pexels-photo-6246200.jpeg",
+        "description": "Person meditating indoors"
+      }
+    ],
+    "instructions": "Use these exact URLs for the respective sections. The main agent must not use generic placeholders."
+  },
+  "motion": {
+    "transitions": "Use Framer Motion for fade-in-up (y: 20, opacity: 0 -> y: 0, opacity: 1) on scroll for major sections.",
+    "hover_effects": "Buttons and cards should gently lift (-translate-y-1) and gain subtle shadow on hover. Add transition-all duration-300."
+  },
+  "data_testid_conventions": {
+    "rules": "All interactive elements MUST have a data-testid attribute.",
+    "examples": [
+      "data-testid='nav-book-appointment-btn'",
+      "data-testid='hero-whatsapp-btn'",
+      "data-testid='treatment-card-hair-fall'",
+      "data-testid='language-toggle-btn'",
+      "data-testid='booking-form-submit-btn'",
+      "data-testid='floating-whatsapp-btn'"
+    ]
+  },
+  "tech_stack_overrides": {
+    "shadcn": "Customize shadcn component default radii (use rounded-2xl) and focus rings (ring-forest-500) to match the earthy theme.",
+    "icons": "Use lucide-react for UI icons (Chevron, Menu, X, Phone, MapPin, Calendar, Clock, WhatsApp etc.)."
+  }
+}
