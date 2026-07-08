@@ -10,7 +10,7 @@ export default function FloatingWhatsApp() {
       target="_blank"
       rel="noreferrer"
       data-testid="floating-whatsapp-btn"
-      className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-[0_20px_40px_-15px_rgba(37,211,102,0.6)] transition-transform hover:scale-105 active:scale-95"
+      className="fixed z-40 bottom-24 right-4 lg:bottom-6 lg:right-6 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-lift transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 active:scale-95"
       aria-label="Chat on WhatsApp"
     >
       <span className="relative flex h-3 w-3">

@@ -4,7 +4,6 @@ import { Loader2, Send, CheckCircle2, Calendar as CalendarIcon } from "lucide-re
 import { format } from "date-fns";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
-import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useLang } from "@/context/LanguageContext";
 import { TREATMENTS } from "@/constants/clinic";
@@ -47,6 +46,7 @@ export default function AppointmentForm() {
       toast.success(t("Appointment request received. We will call you soon.", "ਬੇਨਤੀ ਪ੍ਰਾਪਤ ਹੋਈ। ਅਸੀਂ ਜਲਦੀ ਹੀ ਸੰਪਰਕ ਕਰਾਂਗੇ।"));
       setForm({ name: "", phone: "", problem: "", message: "" });
       setDate(null);
+      setTimeout(() => setDone(false), 4500);
     } catch (err) {
       toast.error(t("Could not submit. Please try again or call us.", "ਭੇਜਿਆ ਨਹੀਂ ਗਿਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜਾਂ ਕਾਲ ਕਰੋ।"));
     } finally {
@@ -58,76 +58,78 @@ export default function AppointmentForm() {
     <form
       onSubmit={submit}
       data-testid="appointment-form"
-      className="rounded-[2rem] bg-white/90 ring-1 ring-forest-900/10 p-6 sm:p-8 shadow-[0_20px_60px_-30px_rgba(15,81,50,0.35)]"
+      className="rounded-[24px] bg-white/85 backdrop-blur-md ring-1 ring-white/60 p-6 sm:p-8 shadow-glass"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h3 className="font-serif text-3xl text-forest-900 leading-tight">{t("Book an Appointment", "ਅਪਾਇੰਟਮੈਂਟ ਬੁੱਕ ਕਰੋ")}</h3>
-          <p className="mt-1 text-sm text-forest-900/70">{t("We usually respond within a few hours.", "ਅਸੀਂ ਆਮ ਤੌਰ 'ਤੇ ਕੁਝ ਘੰਟਿਆਂ ਵਿੱਚ ਜਵਾਬ ਦਿੰਦੇ ਹਾਂ।")}</p>
+          <h3 className="font-display text-2xl sm:text-3xl font-bold text-forest-900 leading-tight">{t("Book an Appointment", "ਅਪਾਇੰਟਮੈਂਟ ਬੁੱਕ ਕਰੋ")}</h3>
+          <p className="mt-1 text-sm text-ink/60">{t("We usually respond within a few hours.", "ਅਸੀਂ ਆਮ ਤੌਰ 'ਤੇ ਕੁਝ ਘੰਟਿਆਂ ਵਿੱਚ ਜਵਾਬ ਦਿੰਦੇ ਹਾਂ।")}</p>
         </div>
         {done && (
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-forest-50 text-forest-800 px-3 py-1 text-xs font-semibold">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-forest-50 text-forest-800 px-3 py-1 text-xs font-semibold animate-fade-up">
             <CheckCircle2 className="h-3.5 w-3.5" /> {t("Received", "ਪ੍ਰਾਪਤ ਹੋਈ")}
           </span>
         )}
       </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <label className="block">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-forest-800/70">{t("Full name", "ਪੂਰਾ ਨਾਮ")}</span>
+        <div className="field">
           <input
             data-testid="form-name-input"
+            id="fld-name"
             value={form.name}
             onChange={update("name")}
-            className="mt-2 w-full rounded-2xl bg-cream-50 ring-1 ring-forest-900/10 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-forest-700"
-            placeholder={t("Your name", "ਤੁਹਾਡਾ ਨਾਮ")}
+            placeholder=" "
             required
           />
-        </label>
-        <label className="block">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-forest-800/70">{t("Phone", "ਫੋਨ")}</span>
+          <label htmlFor="fld-name">{t("Full name", "ਪੂਰਾ ਨਾਮ")}</label>
+        </div>
+        <div className="field">
           <input
             data-testid="form-phone-input"
+            id="fld-phone"
             value={form.phone}
             onChange={update("phone")}
-            className="mt-2 w-full rounded-2xl bg-cream-50 ring-1 ring-forest-900/10 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-forest-700"
-            placeholder="+91 9XXXXXXXXX"
+            placeholder=" "
             required
+            inputMode="tel"
           />
-        </label>
+          <label htmlFor="fld-phone">{t("Phone number", "ਫੋਨ ਨੰਬਰ")}</label>
+        </div>
 
-        <label className="block sm:col-span-2">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-forest-800/70">{t("Problem / Condition", "ਸਮੱਸਿਆ")}</span>
-          <div className="mt-2">
-            <Select value={form.problem} onValueChange={(v) => setForm((f) => ({ ...f, problem: v }))}>
-              <SelectTrigger data-testid="form-problem-select" className="w-full rounded-2xl bg-cream-50 ring-1 ring-forest-900/10 border-0 px-4 py-6 text-sm">
-                <SelectValue placeholder={t("Select a condition", "ਸਮੱਸਿਆ ਚੁਣੋ")} />
-              </SelectTrigger>
-              <SelectContent>
-                {TREATMENTS.map((tr) => (
-                  <SelectItem key={tr.id} value={tr.en}>
-                    {lang === "pa" ? tr.pa : tr.en}
-                  </SelectItem>
-                ))}
-                <SelectItem value="Other">{t("Other", "ਹੋਰ")}</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </label>
+        <div className="field sm:col-span-2">
+          <Select value={form.problem} onValueChange={(v) => setForm((f) => ({ ...f, problem: v }))}>
+            <SelectTrigger
+              data-testid="form-problem-select"
+              className={`field-control ${form.problem ? "field-filled" : ""} !ring-1 !ring-forest-900/10 !border-0 justify-between !bg-white/80 !text-ink`}
+              style={{ paddingTop: form.problem ? "1.5rem" : "1rem" }}
+            >
+              <SelectValue placeholder=" " />
+            </SelectTrigger>
+            <SelectContent className="max-h-[280px]">
+              {TREATMENTS.map((tr) => (
+                <SelectItem key={tr.id} value={tr.en}>
+                  {lang === "pa" ? tr.pa : tr.en}
+                </SelectItem>
+              ))}
+              <SelectItem value="Other">{t("Other", "ਹੋਰ")}</SelectItem>
+            </SelectContent>
+          </Select>
+          <label>{t("Problem / Condition", "ਸਮੱਸਿਆ")}</label>
+        </div>
 
-        <label className="block">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-forest-800/70">{t("Preferred date", "ਪਸੰਦੀਦਾ ਤਾਰੀਖ")}</span>
+        <div className="field">
           <Popover>
             <PopoverTrigger asChild>
-              <Button
-                variant="outline"
-                data-testid="form-date-trigger"
+              <button
                 type="button"
-                className="mt-2 w-full justify-start rounded-2xl bg-cream-50 ring-1 ring-forest-900/10 border-0 px-4 py-6 text-sm font-normal text-forest-900 hover:bg-cream-100"
+                data-testid="form-date-trigger"
+                className={`field-control ${date ? "field-filled" : ""} text-left flex items-center gap-2`}
+                style={{ paddingTop: date ? "1.5rem" : "1rem" }}
               >
-                <CalendarIcon className="mr-2 h-4 w-4 text-forest-700" />
-                {date ? format(date, "PPP") : <span className="text-forest-900/50">{t("Pick a date", "ਤਾਰੀਖ ਚੁਣੋ")}</span>}
-              </Button>
+                <CalendarIcon className="h-4 w-4 text-forest-700" />
+                <span className={date ? "text-ink" : "text-ink/50"}>{date ? format(date, "PPP") : ""}</span>
+              </button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">
               <Calendar
@@ -139,30 +141,31 @@ export default function AppointmentForm() {
               />
             </PopoverContent>
           </Popover>
-        </label>
+          <label>{t("Preferred date", "ਪਸੰਦੀਦਾ ਤਾਰੀਖ")}</label>
+        </div>
 
-        <label className="block">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-forest-800/70">{t("Message (optional)", "ਸੰਦੇਸ਼ (ਵਿਕਲਪਿਕ)")}</span>
+        <div className="field">
           <input
             data-testid="form-message-input"
+            id="fld-msg"
             value={form.message}
             onChange={update("message")}
-            className="mt-2 w-full rounded-2xl bg-cream-50 ring-1 ring-forest-900/10 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-forest-700"
-            placeholder={t("Any details you'd like to share", "ਕੋਈ ਹੋਰ ਜਾਣਕਾਰੀ")}
+            placeholder=" "
           />
-        </label>
+          <label htmlFor="fld-msg">{t("Message (optional)", "ਸੰਦੇਸ਼ (ਵਿਕਲਪਿਕ)")}</label>
+        </div>
       </div>
 
       <button
         type="submit"
         disabled={loading}
         data-testid="form-submit-btn"
-        className="btn-primary mt-6 w-full sm:w-auto disabled:opacity-70"
+        className="btn-primary mt-6 w-full sm:w-auto disabled:opacity-70 min-h-[56px] !px-8"
       >
         {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
         {loading ? t("Sending...", "ਭੇਜ ਰਹੇ ਹਾਂ...") : t("Request Appointment", "ਅਪਾਇੰਟਮੈਂਟ ਭੇਜੋ")}
       </button>
-      <p className="mt-3 text-xs text-forest-900/60">{t("By submitting, you agree to be contacted regarding your appointment.", "ਭੇਜਣ ਦੁਆਰਾ ਤੁਸੀਂ ਸੰਪਰਕ ਲਈ ਸਹਿਮਤ ਹੋ।")}</p>
+      <p className="mt-3 text-xs text-ink/55">{t("By submitting, you agree to be contacted regarding your appointment.", "ਭੇਜਣ ਦੁਆਰਾ ਤੁਸੀਂ ਸੰਪਰਕ ਲਈ ਸਹਿਮਤ ਹੋ।")}</p>
     </form>
   );
 }

@@ -1,0 +1,54 @@
+{
+  "summary": "Comprehensive frontend regression + new-feature verification of the Chahal Ayurvedic redesign. All existing testids, backend integration (POST /api/appointments returns 200), navbar hide-on-scroll, testimonials embla carousel (prev/next/dots + auto-advance ~5s), appointment form (floating labels + calendar popover + submit), sticky mobile CTA, language toggle + cac-lang localStorage persistence, 12 treatment cards with new treatment-cta-<id> hover CTAs, and hero floating leaf/sprout SVG motifs all VERIFIED PASSING. One minor UX gap: newsletter 'invalid email' path never shows the custom toast because native HTML5 validation of type=\"email\" intercepts submit before onSubmit runs.",
+  "tested_scope": ["frontend", "integration (via public REACT_APP_BACKEND_URL)"],
+  "passed": [
+    "Homepage loads on public URL; navbar renders; console clean",
+    "Hero CTAs present: hero-book-btn, hero-call-btn, hero-whatsapp-btn",
+    "Hero has 6 floating lucide Leaf/Sprout SVG icons in DOM (parallax translate on scroll)",
+    "All navbar testids present: nav-link-home/about/treatments/gallery/contact, nav-book-appointment-btn, nav-mobile-toggle",
+    "Sticky navbar hides (adds -translate-y-full) when scrolling DOWN past 120px",
+    "Sticky navbar reappears (translate-y-0) when scrolling UP (verified with real mouse-wheel events; programmatic scrollTo can be flaky)",
+    "Testimonials embla carousel: 4 dots, prev/next both advance selected snap; testimonial-dot-2 click navigates to index 2",
+    "Testimonials auto-advance ~every 5s (index changed 2 -> 3 after ~5.8s wait with mouse moved away)",
+    "Appointment form: floating labels rendered; Select opens 13 options; calendar popover shows 25+ enabled days; POST /api/appointments returned 200 and sonner toast 'Appointment request received.' shown",
+    "Footer newsletter VALID email path: 'Thanks! You're subscribed for wellness tips.' toast fires (UI-only, no backend call as expected)",
+    "Sticky mobile CTA (sticky-mobile-cta, mobile-cta-call/whatsapp/book) hidden on desktop 1920px, visible on 390px mobile viewport",
+    "Language toggle: EN <-> PA updates UI; localStorage key 'cac-lang' set correctly; persists across reload",
+    "Treatments page renders exactly 12 treatment-card-<id> and 12 matching treatment-cta-<id> Consult links (including pcod, hair-fall, infertility)",
+    "Gallery page renders 7 gallery-item-<idx>",
+    "Floating WhatsApp button (floating-whatsapp-btn) present"
+  ],
+  "failed": [
+    "Newsletter INVALID email path: custom sonner error toast never fires because <input type=\"email\"> triggers native HTML5 validation bubble ('Please include an @...') that blocks the form submit event, so the toast.error() branch in Footer.jsx is unreachable"
+  ],
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Footer.jsx (newsletter form)",
+        "issue": "Native HTML5 email validation intercepts submit; requested 'invalid email shows error toast' behavior is unreachable",
+        "selector": "[data-testid=\"footer-newsletter-input\"]",
+        "priority": "LOW"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "action_items": [
+    "In /app/frontend/src/components/site/Footer.jsx, either (a) change input type to 'text' with inputMode=\"email\", or (b) add noValidate on the <form>, or (c) keep native validation but drop the toast.error branch since it's dead code. Recommended: add noValidate on the form so JS validation + toast can run."
+  ],
+  "critical_code_review_comments": [
+    "Newsletter form dead-code branch: toast.error path is unreachable due to HTML5 type=email native validation blocking submit. Either remove or bypass with noValidate.",
+    "Hero parallax attaches a scroll listener that setState's every scroll event (setY). This causes re-renders on every scroll tick; consider throttling with requestAnimationFrame to reduce jank on low-end devices.",
+    "TestimonialsSection auto-advance interval is cleared/restarted on every paused change, which is fine, but there's no cleanup guard if user rapidly hovers in/out — non-critical.",
+    "Sticky mobile CTA overlaps floating-whatsapp-btn at bottom-right on small viewports (both fixed) — verify no visual overlap during real usage."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "~97% (1 minor UX gap)"},
+  "test_credentials": "N/A",
+  "seed_data_creation": "Two TEST_ appointment rows created via POST /api/appointments during form submit tests (name: 'TEST User Auto', 'TEST User Auto2', phone 9876543210/9876543211).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All redesign features verified on public URL. If retesting navbar hide-on-scroll, use real mouse.wheel() events (not window.scrollTo) — the scroll handler compares against lastY.current ref and rapid programmatic scrollTo can coalesce events. Testimonials auto-advance needs the mouse to be moved away from the carousel section (pause-on-hover is active).",
+  "notes": "Backend explicitly deferred per request ('frontend only'); however integration path POST /api/appointments was exercised through the form and confirmed returning 200."
+}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+Gurmukhi:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+Gurmukhi:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,59 +6,122 @@
 
 @layer base {
     :root {
-        --background: 46 33% 97%;             /* #FAF9F6 cream */
-        --foreground: 155 45% 10%;            /* deep forest */
+        --background: 84 20% 98%;             /* #FAFBF8 */
+        --foreground: 220 16% 17%;            /* #1F2937 */
         --card: 0 0% 100%;
-        --card-foreground: 155 45% 10%;
-        --popover: 46 33% 97%;
-        --popover-foreground: 155 45% 10%;
-        --primary: 148 68% 19%;               /* forest-800 #0F5132 */
-        --primary-foreground: 46 33% 97%;
-        --secondary: 44 33% 92%;
-        --secondary-foreground: 155 45% 10%;
-        --muted: 44 20% 90%;
-        --muted-foreground: 155 12% 30%;
-        --accent: 33 60% 47%;                 /* gold */
-        --accent-foreground: 0 0% 100%;
+        --card-foreground: 220 16% 17%;
+        --popover: 84 20% 98%;
+        --popover-foreground: 220 16% 17%;
+        --primary: 123 46% 34%;               /* #2E7D32 */
+        --primary-foreground: 84 20% 98%;
+        --secondary: 84 20% 94%;
+        --secondary-foreground: 220 16% 17%;
+        --muted: 84 20% 94%;
+        --muted-foreground: 220 8% 40%;
+        --accent: 44 89% 57%;                 /* #F4C430 */
+        --accent-foreground: 220 16% 17%;
         --destructive: 0 74% 42%;
         --destructive-foreground: 0 0% 100%;
-        --border: 148 25% 85%;
-        --input: 148 20% 88%;
-        --ring: 148 55% 30%;
-        --radius: 1rem;
+        --border: 123 20% 86%;
+        --input: 123 15% 90%;
+        --ring: 123 46% 34%;
+        --radius: 0.875rem;                   /* ~14px */
     }
 }
 
 @layer base {
-    * {
-        @apply border-border;
-    }
-    html {
-        scroll-behavior: smooth;
-    }
+    * { @apply border-border; }
+    html { scroll-behavior: smooth; }
     body {
         @apply bg-background text-foreground antialiased;
-        font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
-        background-color: #FAF9F6;
+        font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+        font-feature-settings: "cv11", "ss01";
+        color: #1F2937;
+        background-color: #FAFBF8;
         background-image:
-            radial-gradient(1200px 500px at -10% -10%, rgba(43,122,75,0.06), transparent 60%),
-            radial-gradient(900px 500px at 110% 10%, rgba(197,131,43,0.05), transparent 60%),
-            url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.06 0 0 0 0 0.20 0 0 0 0 0.12 0 0 0 0.035 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-        background-attachment: fixed;
+            radial-gradient(1200px 500px at -10% -10%, rgba(46,125,50,0.06), transparent 60%),
+            radial-gradient(900px 500px at 110% 10%, rgba(244,196,48,0.06), transparent 60%);
     }
-    h1, h2, h3, h4, .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
-    .font-punjabi { font-family: 'Noto Sans Gurmukhi', system-ui, sans-serif; }
-    ::selection { background: #0F5132; color: #FAF9F6; }
+    h1, h2, h3, h4, h5, .font-display { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; letter-spacing: -0.01em; }
+    .font-punjabi { font-family: 'Noto Sans Gurmukhi', system-ui, sans-serif; letter-spacing: -0.005em; }
+    ::selection { background: #2E7D32; color: #FAFBF8; }
+    p { line-height: 1.7; }
+
+    /* Fluid headings mapped to requested sizes */
+    .h-hero    { font-size: clamp(2.125rem, 4.2vw + 1rem, 4rem);   line-height: 1.05; font-weight: 700; letter-spacing: -0.02em; }
+    .h-section { font-size: clamp(1.75rem, 3vw + 1rem, 2.625rem);  line-height: 1.1;  font-weight: 700; letter-spacing: -0.015em; }
+    .t-body    { font-size: clamp(1rem, 0.5vw + 0.9rem, 1.125rem); line-height: 1.7; }
 }
 
 @layer components {
-    .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
-    .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-forest-800 px-6 py-3 text-sm font-semibold tracking-wide text-cream-50 shadow-[0_10px_30px_-10px_rgba(15,81,50,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-forest-900; }
-    .btn-outline { @apply inline-flex items-center justify-center gap-2 rounded-full border border-forest-800/25 bg-transparent px-6 py-3 text-sm font-semibold tracking-wide text-forest-900 transition-all duration-300 hover:-translate-y-0.5 hover:border-forest-800 hover:bg-forest-50; }
-    .btn-whatsapp { @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1EBE5D]; }
-    .eyebrow { @apply inline-flex items-center gap-2 rounded-full bg-forest-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-forest-800 ring-1 ring-forest-800/10; }
-    .card-soft { @apply rounded-3xl bg-white/80 backdrop-blur-sm ring-1 ring-forest-900/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)]; }
-    .divider-leaf { background-image: linear-gradient(90deg, transparent, rgba(15,81,50,0.25), transparent); height: 1px; }
+    .container-x { @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8; }
+
+    /* Buttons */
+    .btn { @apply relative inline-flex items-center justify-center gap-2 font-semibold text-sm tracking-wide rounded-[14px] px-6 py-3 transition-all duration-300 ease-out will-change-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background; }
+    .btn-primary { @apply btn bg-forest-800 text-cream-50 shadow-soft hover:shadow-lift hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] hover:bg-forest-700; }
+    .btn-accent  { @apply btn bg-gold text-ink shadow-soft hover:shadow-lift hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] hover:bg-gold-light; }
+    .btn-outline { @apply btn bg-white/70 backdrop-blur-sm text-forest-900 ring-1 ring-forest-800/15 hover:ring-forest-800/40 hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98]; }
+    .btn-whatsapp { @apply btn bg-[#25D366] text-white shadow-soft hover:shadow-lift hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] hover:bg-[#1EBE5D]; }
+    .btn-ghost   { @apply btn bg-transparent text-forest-900 hover:bg-forest-50; }
+
+    /* Ripple */
+    .btn::after {
+        content: "";
+        position: absolute; inset: 0;
+        border-radius: inherit;
+        background: radial-gradient(circle at var(--rx,50%) var(--ry,50%), rgba(255,255,255,0.35) 0%, transparent 40%);
+        opacity: 0; transition: opacity 500ms ease;
+        pointer-events: none;
+    }
+    .btn:active::after { opacity: 1; transition: opacity 0ms; }
+
+    /* Cards */
+    .card-glass { @apply relative rounded-[20px] bg-white/70 backdrop-blur-md ring-1 ring-white/60 shadow-soft; }
+    .card-soft  { @apply rounded-[20px] bg-white/85 backdrop-blur-sm ring-1 ring-forest-900/10 shadow-soft; }
+
+    .eyebrow {
+        @apply inline-flex items-center gap-2 rounded-full bg-forest-50 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-forest-800 ring-1 ring-forest-800/10;
+    }
+
+    /* Nav link underline */
+    .nav-link {
+        @apply relative px-1.5 py-2 text-sm font-medium text-ink/80 transition-colors hover:text-forest-800;
+    }
+    .nav-link::after {
+        content: "";
+        position: absolute; left: 0.375rem; right: 0.375rem; bottom: 0.25rem;
+        height: 2px; background: currentColor; border-radius: 2px;
+        transform: scaleX(0); transform-origin: center;
+        transition: transform 300ms cubic-bezier(0.22,1,0.36,1);
+    }
+    .nav-link:hover::after,
+    .nav-link[data-active="true"]::after { transform: scaleX(1); }
+    .nav-link[data-active="true"] { @apply text-forest-800; }
+
+    /* Floating label */
+    .field { @apply relative; }
+    .field input, .field textarea, .field .field-control {
+        @apply w-full rounded-[14px] bg-white/80 ring-1 ring-forest-900/10 px-4 pt-6 pb-2 text-sm text-ink outline-none transition-all focus:ring-2 focus:ring-forest-500;
+        min-height: 56px;
+    }
+    .field label {
+        @apply pointer-events-none absolute left-4 top-4 text-sm text-ink/50 transition-all;
+    }
+    .field input:not(:placeholder-shown) + label,
+    .field input:focus + label,
+    .field textarea:not(:placeholder-shown) + label,
+    .field textarea:focus + label,
+    .field .field-filled + label {
+        @apply top-1.5 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-forest-800;
+    }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s cubic-bezier(0.22,1,0.36,1), transform .7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+    /* Utility: gradient underline for links */
+    .link-underline { background-image: linear-gradient(currentColor,currentColor); background-size: 0% 1px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .35s ease; }
+    .link-underline:hover { background-size: 100% 1px; }
 }
 
 @layer base {
