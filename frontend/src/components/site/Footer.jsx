@@ -36,7 +36,7 @@ export default function Footer() {
             </h3>
             <p className="mt-3 text-cream-50/70">{t("One short letter every week. No spam, only wellness.", "ਹਫ਼ਤੇ ਵਿੱਚ ਇੱਕ ਚਿੱਠੀ। ਸਿਰਫ਼ ਤੰਦਰੁਸਤੀ।")}</p>
           </div>
-          <form onSubmit={subscribe} className="flex flex-col sm:flex-row gap-2">
+          <form onSubmit={subscribe} noValidate className="flex flex-col sm:flex-row gap-2">
             <div className="field flex-1">
               <input
                 data-testid="footer-newsletter-input"
