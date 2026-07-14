@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Phone, MessageCircle, ArrowRight, ShieldCheck, Sprout, Leaf } from "lucide-react";
+import { ArrowRight, ShieldCheck, Sprout, Leaf } from "lucide-react";
 import { CLINIC, IMAGES } from "@/constants/clinic";
 import { useLang } from "@/context/LanguageContext";
+import ContactMenu from "@/components/site/ContactMenu";
 
 export default function Hero() {
   const { t } = useLang();
   const [y, setY] = useState(0);
-  const waHref = `https://wa.me/${CLINIC.whatsapp}?text=${encodeURIComponent(CLINIC.whatsapp_message)}`;
 
   useEffect(() => {
     const onScroll = () => setY(window.scrollY);
@@ -66,12 +66,20 @@ export default function Hero() {
             <Link to="/contact#book" data-testid="hero-book-btn" className="btn-primary">
               {t("Book Appointment", "ਅਪਾਇੰਟਮੈਂਟ ਬੁੱਕ ਕਰੋ")} <ArrowRight className="h-4 w-4" />
             </Link>
-            <a href={`tel:${CLINIC.phone_tel}`} data-testid="hero-call-btn" className="btn-outline">
-              <Phone className="h-4 w-4" /> {CLINIC.phone_display}
-            </a>
-            <a href={waHref} target="_blank" rel="noreferrer" data-testid="hero-whatsapp-btn" className="btn-whatsapp">
-              <MessageCircle className="h-4 w-4" /> WhatsApp
-            </a>
+            <ContactMenu
+              variant="outline"
+              testIdPrefix="hero-call"
+              icon="phone"
+              align="start"
+              label={t("Call", "ਕਾਲ ਕਰੋ")}
+            />
+            <ContactMenu
+              variant="whatsapp"
+              testIdPrefix="hero-wa"
+              icon="whatsapp"
+              align="start"
+              label="WhatsApp"
+            />
           </div>
 
           {/* Trust bar */}

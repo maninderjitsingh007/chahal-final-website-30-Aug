@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Leaf } from "lucide-react";
 import { CLINIC } from "@/constants/clinic";
 import { useLang } from "@/context/LanguageContext";
+import ContactMenu from "@/components/site/ContactMenu";
 
 const links = [
   { to: "/", en: "Home", pa: "ਮੁੱਖ" },
@@ -87,9 +88,12 @@ export default function Navbar() {
               className={`text-xs font-semibold px-3 py-1 rounded-full transition font-punjabi ${lang === "pa" ? "bg-forest-800 text-cream-50" : "text-ink/70 hover:bg-forest-50"}`}
             >ਪੰਜਾਬੀ</button>
           </div>
-          <a href={`tel:${CLINIC.phone_tel}`} data-testid="nav-call-btn" className="btn-outline !py-2 !px-4 text-xs">
-            <Phone className="h-3.5 w-3.5" /> {CLINIC.phone_display}
-          </a>
+          <ContactMenu
+            variant="outline"
+            size="sm"
+            testIdPrefix="nav-contact"
+            label={CLINIC.phone_display}
+          />
           <Link to="/contact#book" data-testid="nav-book-appointment-btn" className="btn-accent !py-2 !px-4 text-xs">
             {t("Book Appointment", "ਅਪਾਇੰਟਮੈਂਟ")}
           </Link>

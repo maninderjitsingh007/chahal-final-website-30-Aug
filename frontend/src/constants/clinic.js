@@ -9,6 +9,9 @@ export const CLINIC = {
   phone_display: "94172-58159",
   phone_tel: "+919417258159",
   whatsapp: "919417258159",
+  phone2_display: "99149-58159",
+  phone2_tel: "+919914958159",
+  whatsapp2: "919914958159",
   whatsapp_message: "Hello, I would like to book an Ayurvedic consultation at Chahal Ayurvedic Clinic.",
   address_en: "H.No. 258, Crossing Street No. 2, Guru Teg Bahadur Colony, Bus Stand to College Road, Malerkotla-148023, Punjab",
   address_pa: "ਘਰ ਨੰ: 258, ਕਰੌਸਿੰਗ ਸਟਰੀਟ ਨੰ: 2, ਗੁਰੂ ਤੇਗ ਬਹਾਦਰ ਕਾਲੋਨੀ, ਬੱਸ ਸਟੈਂਡ ਤੋਂ ਕਾਲਜ ਰੋਡ, ਮਾਲੇਰਕੋਟਲਾ-148023, ਪੰਜਾਬ",
@@ -18,7 +21,7 @@ export const CLINIC = {
 
 export const TREATMENTS = [
   { id: "infertility",     icon: "HeartPulse",   en: "Infertility (Men & Women)",  pa: "ਮਰਦਾਂ ਅਤੇ ਔਰਤਾਂ ਵਿੱਚ ਬਾਂਝਪਨ" },
-  { id: "cataract",        icon: "Eye",          en: "Cataract / White Water",     pa: "ਸਫੇਦ ਪਾਣੀ ਪੈਣਾ" },
+  { id: "leucorrhea",      icon: "Droplets",     en: "Leucorrhea / White Discharge", pa: "ਸਫੇਦ ਪਾਣੀ ਪੈਣਾ" },
   { id: "childless",       icon: "Baby",         en: "Childless Couples",          pa: "ਬੇਔਲਾਦ ਜੋੜੇ ਮਿਲੋ" },
   { id: "hair-fall",       icon: "Sprout",       en: "Hair Fall Problem",          pa: "ਵਾਲ ਝੜਨ ਦੀ ਸਮੱਸਿਆ" },
   { id: "pcod",            icon: "Flower2",      en: "PCOD & Hormonal Care",       pa: "ਪੀਸੀਓਡੀ" },

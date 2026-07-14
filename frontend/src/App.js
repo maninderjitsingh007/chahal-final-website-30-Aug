@@ -5,7 +5,7 @@ import { Toaster } from "sonner";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
-import FloatingWhatsApp from "@/components/site/FloatingWhatsApp";
+import FloatingContactWidget from "@/components/site/FloatingContactWidget";
 import StickyMobileCTA from "@/components/site/StickyMobileCTA";
 import HomePage from "@/pages/HomePage";
 import AboutPage from "@/pages/AboutPage";
@@ -39,7 +39,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
-          <FloatingWhatsApp />
+          <FloatingContactWidget />
           <StickyMobileCTA />
           <Toaster position="top-right" richColors />
         </BrowserRouter>

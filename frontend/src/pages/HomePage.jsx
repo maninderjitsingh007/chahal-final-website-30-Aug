@@ -60,9 +60,12 @@ export default function HomePage() {
                 <MapPin className="h-5 w-5 text-forest-700 mt-0.5" />
                 <p className="text-sm text-ink/80">{t(CLINIC.address_en, CLINIC.address_pa)}</p>
               </div>
-              <div className="flex items-center gap-3 rounded-2xl bg-white/85 ring-1 ring-forest-900/10 p-4 shadow-soft">
-                <Phone className="h-5 w-5 text-forest-700" />
-                <a href={`tel:${CLINIC.phone_tel}`} className="text-sm font-semibold text-forest-900">{CLINIC.phone_display}</a>
+              <div className="flex items-start gap-3 rounded-2xl bg-white/85 ring-1 ring-forest-900/10 p-4 shadow-soft">
+                <Phone className="h-5 w-5 text-forest-700 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a href={`tel:${CLINIC.phone_tel}`} data-testid="home-call-1" className="text-sm font-semibold text-forest-900">{CLINIC.phone_display}</a>
+                  <a href={`tel:${CLINIC.phone2_tel}`} data-testid="home-call-2" className="text-sm font-semibold text-forest-900">{CLINIC.phone2_display}</a>
+                </div>
               </div>
               <div className="flex items-center gap-3 rounded-2xl bg-white/85 ring-1 ring-forest-900/10 p-4 shadow-soft">
                 <Clock className="h-5 w-5 text-forest-700" />

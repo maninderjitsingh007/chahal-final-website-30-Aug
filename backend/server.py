@@ -79,7 +79,9 @@ async def clinic_info():
         "qualification": "BAMS",
         "address": "H.No. 258, Crossing Street No. 2, Guru Teg Bahadur Colony, Bus Stand to College Road, Malerkotla-148023, Punjab",
         "phone": "+91 94172-58159",
+        "phone2": "+91 99149-58159",
         "whatsapp": "+919417258159",
+        "whatsapp2": "+919914958159",
         "tagline_pa": "ਹਰ ਬਿਮਾਰੀ ਦਾ ਕੁਦਰਤੀ ਇਲਾਜ",
         "tagline_en": "Natural Cure for Every Disease",
     }

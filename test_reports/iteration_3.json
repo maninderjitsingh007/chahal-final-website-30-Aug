@@ -1,0 +1,49 @@
+{
+  "summary": "Delta test: second phone number (99149-58159) integration + Cataract→Leucorrhea rename fully verified across FE + BE. All 4 ContactMenu popovers (nav, hero-call, hero-wa, splash-call, splash-wa) reveal both tel:+919417258159 & tel:+919914958159 + both WhatsApp chats. FloatingContactWidget (float-call-1/2, float-wa-1/2), StickyMobileCTA popovers (mobile-cta-call-1/2, mobile-cta-whatsapp-1/2, mobile-cta-book), Footer (footer-call-1/2, footer-whatsapp-1/2), Home booking (home-call-1/2), Contact page sidebar (contact-call-link-1/2, contact-whatsapp-1/2), and Splash bottom strip (splash-call-link-1/2) all verified with correct href values. Treatments page renders exactly 12 cards; treatment-card-leucorrhea present with 'Leucorrhea / White Discharge' text; treatment-card-cataract absent; no residual 'Cataract'/'White Water' strings on page. Appointment form Select shows 13 options (12 treatments + Other) including 'Leucorrhea / White Discharge' and NO 'Cataract'. POST /api/appointments regression = 200 with success toast. GET /api/clinic-info returns phone (94172-58159), phone2 (99149-58159), whatsapp (+919417258159), whatsapp2 (+919914958159). Language toggle EN<->PA persists via localStorage cac-lang.",
+  "tested_scope": ["backend (pytest)", "frontend (playwright on public URL)"],
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "passed": [
+    "Backend: GET /api/clinic-info returns phone, phone2, whatsapp, whatsapp2 with expected substrings",
+    "Backend: POST /api/appointments (Leucorrhea payload) 200 + persistence via GET verified",
+    "Backend: POST /api/appointments minimal payload 200",
+    "Backend: POST /api/appointments missing phone -> 422",
+    "Backend: GET /api/appointments returns list",
+    "Backend: POST /api/contact requires phone or email (400)",
+    "Backend: POST /api/contact with phone -> 200",
+    "Backend: GET /api/ root 200",
+    "FE: nav-contact-trigger popover shows nav-contact-call-1/2 (tel:+919417258159/+919914958159) and nav-contact-wa-1/2 (wa.me/919417258159 / wa.me/919914958159)",
+    "FE: hero-call-trigger + hero-wa-trigger popovers both expose all 4 options (hero-call-call-1/2, hero-call-wa-1/2 and hero-wa-call-1/2, hero-wa-wa-1/2)",
+    "FE: splash-call-trigger + splash-wa-trigger popovers both expose all 4 options",
+    "FE: splash-call-link-1 (94172-58159 → tel:+919417258159) and splash-call-link-2 (99149-58159 → tel:+919914958159) shown on bottom strip",
+    "FE: floating-contact-toggle opens panel; float-call-1/2 & float-wa-1/2 all have correct hrefs",
+    "FE (390px): sticky-mobile-cta visible; mobile-cta-call-trigger and mobile-cta-whatsapp-trigger popovers expose numbers 1 & 2; mobile-cta-book links to /contact#book",
+    "FE: footer-call-1/2 and footer-whatsapp-1/2 correct hrefs",
+    "FE: home-call-1/2 correct hrefs",
+    "FE: contact-call-link-1/2 and contact-whatsapp-1/2 correct hrefs",
+    "FE: Treatments page renders exactly 12 cards; treatment-card-leucorrhea exists with 'Leucorrhea / White Discharge'; treatment-card-cataract does NOT exist; no 'Cataract'/'White Water' text on page; treatment-cta-leucorrhea link exists",
+    "FE: Appointment form-problem-select has 13 options including 'Leucorrhea / White Discharge', no 'Cataract'",
+    "FE: Appointment form submit with Leucorrhea returns success toast (POST /api/appointments 200)",
+    "FE: Language toggle EN<->PA persists to localStorage cac-lang"
+  ],
+  "failed": [],
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Minor: In FloatingContactWidget.jsx panel is always in the DOM with pointer-events toggled; that is fine but a screen reader might announce hidden options. Consider aria-hidden={!open}.",
+    "Minor: Footer newsletter dead-code toast.error branch (carried over from iteration_2) remains — with noValidate now on the form the branch is reachable, so this is resolved.",
+    "Minor: /api/clinic-info returns whatsapp as '+919417258159' (with leading '+') but frontend uses '919417258159' constant. Both work with wa.me but the API string with '+' will not build a working https://wa.me/+91… link if consumed directly by any future client — consider standardising (drop '+' in API values, keep '+' for tel: fields only).",
+    "Sticky mobile CTA + floating-contact-toggle are both bottom-fixed on mobile; verify vertical spacing (floating widget sits at bottom-24, sticky CTA at bottom-3 — currently OK but any bottom-safe-area change could cause overlap)."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "100% (8/8)", "frontend": "100% (all requested selectors verified)"},
+  "test_credentials": "N/A",
+  "seed_data_creation": "Created TEST_ prefixed appointment rows via POST /api/appointments (name='TEST User Leuco', 'TEST Min', 'TEST FE User') and one TEST_ contact message. No production data touched.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Second phone number & Leucorrhea rename delta is fully green. ContactMenu popovers use testid pattern `${prefix}-call-1|2` and `${prefix}-wa-1|2` where prefix e.g. 'hero-call' → hero-call-call-1 etc. Radix Popover renders in portal; querying by data-testid works without special handling. Sticky mobile CTA only appears below lg breakpoint (<1024px).",
+  "rca of the issue": "N/A — no functional issues found."
+}

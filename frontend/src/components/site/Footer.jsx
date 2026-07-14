@@ -111,17 +111,28 @@ export default function Footer() {
           <p className="text-xs uppercase tracking-[0.22em] text-cream-50/60">{t("Visit Us", "ਸਾਡੇ ਕੋਲ ਆਓ")}</p>
           <ul className="mt-5 space-y-3 text-sm text-cream-50/80">
             <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-gold-light" /><span>{t(CLINIC.address_en, CLINIC.address_pa)}</span></li>
-            <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-gold-light" /><a href={`tel:${CLINIC.phone_tel}`} className="hover:text-white">{CLINIC.phone_display}</a></li>
+            <li className="flex gap-3">
+              <Phone className="h-4 w-4 mt-0.5 shrink-0 text-gold-light" />
+              <span className="flex flex-col gap-1">
+                <a href={`tel:${CLINIC.phone_tel}`} data-testid="footer-call-1" className="hover:text-white">{CLINIC.phone_display}</a>
+                <a href={`tel:${CLINIC.phone2_tel}`} data-testid="footer-call-2" className="hover:text-white">{CLINIC.phone2_display}</a>
+              </span>
+            </li>
             <li className="flex gap-3"><Clock className="h-4 w-4 mt-0.5 shrink-0 text-gold-light" /><span>{t(CLINIC.hours_en, CLINIC.hours_pa)}</span></li>
           </ul>
         </div>
 
         <div>
           <p className="text-xs uppercase tracking-[0.22em] text-cream-50/60">{t("Quick Actions", "ਤੁਰੰਤ ਕਾਰਵਾਈ")}</p>
-          <p className="mt-4 text-sm text-cream-50/80">{t("Fastest response via WhatsApp.", "WhatsApp 'ਤੇ ਸਭ ਤੋਂ ਤੇਜ਼ ਜਵਾਬ।")}</p>
-          <a href={waHref} target="_blank" rel="noreferrer" data-testid="footer-whatsapp-btn" className="mt-4 btn-whatsapp !py-2.5 !px-5 text-xs">
-            <MessageCircle className="h-4 w-4" /> {t("Chat on WhatsApp", "WhatsApp ਕਰੋ")}
-          </a>
+          <p className="mt-4 text-sm text-cream-50/80">{t("Reach out via call or WhatsApp on either number.", "ਦੋਵੇਂ ਨੰਬਰਾਂ 'ਤੇ ਕਾਲ ਜਾਂ WhatsApp ਕਰੋ।")}</p>
+          <div className="mt-4 grid gap-2">
+            <a href={`https://wa.me/${CLINIC.whatsapp}?text=${encodeURIComponent(CLINIC.whatsapp_message)}`} target="_blank" rel="noreferrer" data-testid="footer-whatsapp-1" className="btn-whatsapp !py-2.5 !px-4 !text-xs justify-start">
+              <MessageCircle className="h-4 w-4" /> WhatsApp • {CLINIC.phone_display}
+            </a>
+            <a href={`https://wa.me/${CLINIC.whatsapp2}?text=${encodeURIComponent(CLINIC.whatsapp_message)}`} target="_blank" rel="noreferrer" data-testid="footer-whatsapp-2" className="btn-whatsapp !py-2.5 !px-4 !text-xs justify-start">
+              <MessageCircle className="h-4 w-4" /> WhatsApp • {CLINIC.phone2_display}
+            </a>
+          </div>
           <p className="mt-6 font-punjabi text-lg text-gold-light">{CLINIC.tagline_pa}</p>
         </div>
       </div>

@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { CLINIC, IMAGES } from "@/constants/clinic";
 import { useLang } from "@/context/LanguageContext";
+import ContactMenu from "@/components/site/ContactMenu";
 
 export default function SplashBanner() {
   const { t } = useLang();
-  const waHref = `https://wa.me/${CLINIC.whatsapp}?text=${encodeURIComponent(CLINIC.whatsapp_message)}`;
 
   return (
     <section data-testid="splash-banner" className="relative w-full pt-20 lg:pt-24">
@@ -40,9 +40,20 @@ export default function SplashBanner() {
             <Link to="/contact#book" data-testid="splash-book-btn" className="btn-accent">
               {t("Book Your Consultation", "ਸਲਾਹ ਬੁੱਕ ਕਰੋ")} <ArrowRight className="h-4 w-4" />
             </Link>
-            <a href={waHref} target="_blank" rel="noreferrer" data-testid="splash-whatsapp-btn" className="btn-whatsapp">
-              <MessageCircle className="h-4 w-4" /> WhatsApp
-            </a>
+            <ContactMenu
+              variant="outline-dark"
+              testIdPrefix="splash-call"
+              icon="phone"
+              align="start"
+              label={t("Call", "ਕਾਲ")}
+            />
+            <ContactMenu
+              variant="whatsapp"
+              testIdPrefix="splash-wa"
+              icon="whatsapp"
+              align="start"
+              label="WhatsApp"
+            />
           </div>
         </div>
 
@@ -53,7 +64,11 @@ export default function SplashBanner() {
               <span className="hidden sm:inline text-cream-50/60">|</span>
               <span>{t("15+ years of authentic Ayurvedic practice", "15+ ਸਾਲਾਂ ਦਾ ਅਸਲੀ ਆਯੁਰਵੈਦਿਕ ਤਜ਼ਰਬਾ")}</span>
               <span className="hidden sm:inline text-cream-50/60">|</span>
-              <a href={`tel:${CLINIC.phone_tel}`} data-testid="splash-call-link" className="font-semibold text-gold-light hover:text-cream-50">📞 {CLINIC.phone_display}</a>
+              <div className="flex items-center gap-3 font-semibold">
+                <a href={`tel:${CLINIC.phone_tel}`} data-testid="splash-call-link-1" className="text-gold-light hover:text-cream-50">📞 {CLINIC.phone_display}</a>
+                <span className="text-cream-50/50">•</span>
+                <a href={`tel:${CLINIC.phone2_tel}`} data-testid="splash-call-link-2" className="text-gold-light hover:text-cream-50">📞 {CLINIC.phone2_display}</a>
+              </div>
             </div>
           </div>
         </div>
