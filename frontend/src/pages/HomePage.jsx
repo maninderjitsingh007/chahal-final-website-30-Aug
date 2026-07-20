@@ -8,7 +8,7 @@ import TestimonialsSection from "@/components/site/TestimonialsSection";
 import AppointmentForm from "@/components/site/AppointmentForm";
 import { IMAGES, CLINIC } from "@/constants/clinic";
 import { useLang } from "@/context/LanguageContext";
-import { MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone, Clock, Mail } from "lucide-react";
 import { Reveal } from "@/hooks/useReveal";
 
 export default function HomePage() {
@@ -70,6 +70,10 @@ export default function HomePage() {
               <div className="flex items-center gap-3 rounded-2xl bg-white/85 ring-1 ring-forest-900/10 p-4 shadow-soft">
                 <Clock className="h-5 w-5 text-forest-700" />
                 <p className="text-sm text-ink/80">{t(CLINIC.hours_en, CLINIC.hours_pa)}</p>
+              </div>
+              <div className="flex items-center gap-3 rounded-2xl bg-white/85 ring-1 ring-forest-900/10 p-4 shadow-soft">
+                <Mail className="h-5 w-5 text-forest-700" />
+                <a href={`mailto:${CLINIC.email}`} data-testid="home-email" className="text-sm font-semibold text-forest-900 break-all">{CLINIC.email}</a>
               </div>
             </div>
 

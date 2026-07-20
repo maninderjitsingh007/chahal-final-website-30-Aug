@@ -38,7 +38,18 @@ export default function Hero() {
 
       <div className="container-x grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
         <div className="lg:col-span-7">
-          <div className="animate-fade-up">
+          {/* Brand banner */}
+          <div className="mb-8 text-center lg:text-left animate-fade-up">
+            <p className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-forest-900">
+              Chahal <span className="text-gold-dark">Ayurvedic</span>
+            </p>
+            <p className="mt-1.5 font-punjabi text-2xl sm:text-3xl lg:text-4xl font-bold text-forest-800">
+              <span className="text-gold-dark">ਚਹਿਲ</span> ਆਯੁਰਵੈਦਿਕ
+            </p>
+            <span className="mt-3 inline-block h-[3px] w-16 rounded-full bg-gradient-to-r from-gold to-gold-dark" />
+          </div>
+
+          <div className="animate-fade-up" style={{ animationDelay: "60ms" }}>
             <span className="eyebrow">
               <Sprout className="h-3.5 w-3.5" /> {t("A lineage of natural healing", "ਕੁਦਰਤੀ ਇਲਾਜ ਦੀ ਵਿਰਾਸਤ")}
             </span>

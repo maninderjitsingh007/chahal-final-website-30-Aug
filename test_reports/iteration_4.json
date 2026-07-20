@@ -1,0 +1,55 @@
+{
+  "summary": "Iteration 4 delta test (Read More modal + email + ਚਾਹਲ→ਚਹਿਲ rename + hero brand banner + sticky/floating z-index + doctor image swap). Backend 8/8 pytest all green including new assertion that GET /api/clinic-info.email == 'chahal2006@yahoo.co.in'. Frontend Playwright: 30/30 primary assertions passed. All 3 sampled treatment modals (pcod, leucorrhea, digestion) open with correct English + Punjabi long descriptions, `treatment-modal-book-btn` → /contact#book, `treatment-modal-whatsapp-btn` → https://wa.me/919417258159, `treatment-modal-close-btn` closes cleanly, Escape also closes (Radix Dialog data-state open/closed observed, font-punjabi class present in modal). Full-page textContent scans of /, /about, /treatments, /gallery, /contact contain zero 'ਚਾਹਲ' occurrences; 'ਚਹਿਲ' is present on / and /about. Hero brand banner shows both 'Chahal Ayurvedic' and 'ਚਹਿਲ ਆਯੁਰਵੈਦਿਕ' inside data-testid=hero-section. All email testids present with correct mailto:chahal2006@yahoo.co.in: footer-email, home-email, contact-email-link, float-email (after opening floating widget), nav-contact-email (after opening nav-contact-trigger). Mobile 390x844: sticky-mobile-cta z-index=60 (bottom≈776/vh=844, fully visible); floating-contact-toggle wrapper z-index=60, both remain in viewport after scrolling 800px. Regression: appointment POST via /contact#book returns success toast 'Appointment request received. We will call you soon.' All 12 treatment cards and readmore buttons render on /treatments.",
+  "tested_scope": ["backend (pytest, 8 tests)", "frontend (playwright on public URL)"],
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "/about", "issues": ["Consultation image (IMAGES.consultation) is rendered without loading='lazy' attribute (currently loading='auto'). Task spec required loading='lazy'. Home page instance IS loading='lazy'; only /app/frontend/src/pages/AboutPage.jsx line 27 <img> tag needs `loading=\"lazy\"` added."]}
+    ]
+  },
+  "passed": [
+    "BE: GET /api/clinic-info returns email='chahal2006@yahoo.co.in' plus phone/phone2/whatsapp/whatsapp2 (all fragments verified)",
+    "BE: POST /api/appointments (leucorrhea payload) 200 + GET-verification persistence",
+    "BE: POST /api/appointments minimal 200, validation 422 for missing phone",
+    "BE: GET /api/appointments list ok, POST /api/contact validation + happy path",
+    "FE: Hero (/) contains both 'Chahal Ayurvedic' and 'ਚਹਿਲ ਆਯੁਰਵੈਦਿਕ' inside data-testid=hero-section",
+    "FE: No 'ਚਾਹਲ' on /, /about, /treatments, /gallery, /contact (full-page innerText scan)",
+    "FE: 'ਚਹਿਲ' present on / and /about",
+    "FE: Home page consultation image src contains customer-assets.emergentagent.com and loading='lazy'",
+    "FE: /about consultation image src contains customer-assets.emergentagent.com (loading attr missing - see minor issue)",
+    "FE: home-email, footer-email, contact-email-link, float-email, nav-contact-email all present with href=mailto:chahal2006@yahoo.co.in",
+    "FE: /treatments renders exactly 12 treatment-card-* and 12 treatment-readmore-* elements",
+    "FE: treatment-modal-pcod / -leucorrhea / -digestion open with correct EN + PA long descriptions; book-btn href=/contact#book; whatsapp-btn href starts https://wa.me/919417258159; close-btn closes modal; Escape key closes modal; font-punjabi class present in PA section",
+    "FE: Radix Dialog data-state='open' observed while modal open",
+    "FE (390x844): sticky-mobile-cta computed z-index=60, visible in initial viewport (top 776, bottom 832, vh 844)",
+    "FE (390x844): floating-contact-toggle wrapper computed z-index=60, visible; both remain visible after scrolling 800px",
+    "FE: opening floating-contact-toggle reveals float-email with correct mailto",
+    "FE: appointment submit at /contact#book shows success toast 'Appointment request received.'",
+    "FE: nav-contact-trigger popover reveals nav-contact-email"
+  ],
+  "failed": [],
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Minor: Add loading=\"lazy\" to the consultation <img> in /app/frontend/src/pages/AboutPage.jsx line 27 (currently missing). Note: since it's above the fold on About page, this is a spec-adherence item; consider whether lazy is actually desirable there."
+  ],
+  "critical_code_review_comments": [
+    "TreatmentModal.jsx uses Radix Dialog which portals to body; querying by data-testid works globally and dialog data-state open/closed is present -> smooth open/close animation classes verified.",
+    "Both sticky-mobile-cta (bottom:0.75rem) and floating-contact-toggle (bottom:96px on mobile via bottom-24) coexist without overlap at 390x844 - sticky at y≈776, floating at y≈704 (~72px gap). Safe for the standard mobile viewport but verify on shorter viewports (e.g. iPhone SE 320x568) since safe-area padding is applied to both.",
+    "/api/clinic-info still returns whatsapp with leading '+' (as noted in iteration_3) — not blocking but consumers using wa.me/${whatsapp} would build https://wa.me/+919...; frontend uses the CLINIC constant so this is only a concern for external consumers of the API.",
+    "AboutPage consultation <img> lacks loading='lazy' — trivial one-line fix to fully satisfy spec.",
+    "Newsletter subscribe form in Footer.jsx remains UI-only (mock) — not part of this delta but worth flagging that toast.success runs even though no backend endpoint exists yet."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "100% (8/8)", "frontend": "100% functional; 1 minor spec-adherence miss (About img loading attr)"},
+  "test_credentials": "N/A",
+  "seed_data_creation": "Created TEST-prefixed appointments and one TEST contact via backend pytest run and one appointment via frontend form (name='TEST FE Modal', phone='9990000001'). No production data touched.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All ਚਾਹਲ→ਚਹਿਲ rename, email additions, hero brand banner, treatment Read-More modal, z-index 60 for mobile CTAs, and new consultation asset URL are verified. The only observed spec miss is loading='lazy' on AboutPage.jsx consultation <img> (line 27). Backend regression tests live at /app/backend/tests/backend_test.py (pytest, 8 tests). Radix Dialog closes via close-btn AND Escape. Overlay-click close not explicitly tested but Radix default behavior is present; Escape close was verified as a proxy.",
+  "rca of the issue": "AboutPage.jsx line 27 <img src={IMAGES.consultation} alt=\"Doctor consultation\" className=\"h-[560px] w-full object-cover\" /> is missing the loading='lazy' attribute. HomePage image tag renders with loading='lazy' correctly. Fix: add loading=\"lazy\" prop to the img tag. Reproduction: navigate to /about and inspect document.images filter by customer-assets.emergentagent.com — img.loading returns 'auto'."
+}

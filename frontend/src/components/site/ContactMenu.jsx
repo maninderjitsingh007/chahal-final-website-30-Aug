@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Phone, MessageCircle, ChevronDown } from "lucide-react";
+import { Phone, MessageCircle, ChevronDown, Mail } from "lucide-react";
 import { CLINIC } from "@/constants/clinic";
 import { useLang } from "@/context/LanguageContext";
 
@@ -113,6 +113,26 @@ export default function ContactMenu({
             </a>
           ))}
         </div>
+
+        <p className="mt-3 px-2 pb-2 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-forest-800/70">
+          {t("Email", "ਈਮੇਲ")}
+        </p>
+        <a
+          href={`mailto:${CLINIC.email}`}
+          data-testid={`${testIdPrefix}-email`}
+          onClick={() => setOpen(false)}
+          className="flex items-center justify-between rounded-[14px] bg-gold/10 ring-1 ring-gold/25 px-3 py-2.5 transition hover:bg-gold/20"
+        >
+          <span className="flex items-center gap-3 min-w-0">
+            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-gold text-forest-900">
+              <Mail className="h-3.5 w-3.5" />
+            </span>
+            <span className="text-xs font-semibold text-forest-900 truncate">{CLINIC.email}</span>
+          </span>
+          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-dark shrink-0 ml-2">
+            {t("Email", "ਭੇਜੋ")}
+          </span>
+        </a>
       </PopoverContent>
     </Popover>
   );

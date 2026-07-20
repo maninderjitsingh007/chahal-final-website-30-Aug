@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Phone, MapPin, Clock, Leaf, MessageCircle, Facebook, Instagram, Youtube, Send, Sparkles } from "lucide-react";
+import { Phone, MapPin, Clock, Leaf, MessageCircle, Facebook, Instagram, Youtube, Send, Sparkles, Mail } from "lucide-react";
 import { CLINIC } from "@/constants/clinic";
 import { useLang } from "@/context/LanguageContext";
 import { toast } from "sonner";
@@ -119,6 +119,10 @@ export default function Footer() {
               </span>
             </li>
             <li className="flex gap-3"><Clock className="h-4 w-4 mt-0.5 shrink-0 text-gold-light" /><span>{t(CLINIC.hours_en, CLINIC.hours_pa)}</span></li>
+            <li className="flex gap-3">
+              <Mail className="h-4 w-4 mt-0.5 shrink-0 text-gold-light" />
+              <a href={`mailto:${CLINIC.email}`} data-testid="footer-email" className="hover:text-white break-all">{CLINIC.email}</a>
+            </li>
           </ul>
         </div>
 

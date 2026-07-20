@@ -32,7 +32,7 @@ export default function TreatmentsPage() {
           <p className="mt-4 text-forest-900/75 leading-relaxed max-w-lg">
             {t(
               "Send us a short message describing your symptoms. Dr. Chahal will personally review your case and suggest the right consultation.",
-              "ਆਪਣੇ ਲੱਛਣ ਦੱਸਦੇ ਹੋਏ ਇੱਕ ਸੰਦੇਸ਼ ਭੇਜੋ। ਡਾ. ਚਾਹਲ ਖੁਦ ਦੇਖਣਗੇ ਅਤੇ ਸਹੀ ਸਲਾਹ ਦੇਣਗੇ।"
+              "ਆਪਣੇ ਲੱਛਣ ਦੱਸਦੇ ਹੋਏ ਇੱਕ ਸੰਦੇਸ਼ ਭੇਜੋ। ਡਾ. ਚਹਿਲ ਖੁਦ ਦੇਖਣਗੇ ਅਤੇ ਸਹੀ ਸਲਾਹ ਦੇਣਗੇ।"
             )}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">

@@ -28,6 +28,8 @@ class TestClinicInfo:
         assert "99149" in data["phone2"] and "58159" in data["phone2"]
         assert "9417258159" in data["whatsapp"]
         assert "9914958159" in data["whatsapp2"]
+        # Email field
+        assert data.get("email") == "chahal2006@yahoo.co.in"
         # Other required fields still present
         for k in ("name", "doctor", "qualification", "address", "tagline_en", "tagline_pa"):
             assert k in data

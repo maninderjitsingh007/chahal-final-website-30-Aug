@@ -32,7 +32,7 @@ export default function AboutSection() {
           <p className="mt-6 t-body text-ink/75">
             {t(
               "A dedicated BAMS practitioner combining classical Ayurvedic wisdom with a compassionate, individualized approach. Dr. Chahal has helped thousands of patients across Punjab regain balance — treating root causes, not symptoms.",
-              "ਪਰੰਪਰਾਗਤ ਆਯੁਰਵੈਦਿਕ ਗਿਆਨ ਅਤੇ ਆਧੁਨਿਕ ਦੇਖਭਾਲ ਦਾ ਸੰਗਮ। ਡਾ. ਚਾਹਲ ਨੇ ਪੰਜਾਬ ਭਰ ਦੇ ਹਜ਼ਾਰਾਂ ਮਰੀਜ਼ਾਂ ਦਾ ਇਲਾਜ ਕੀਤਾ ਹੈ — ਲੱਛਣ ਨਹੀਂ, ਜੜ੍ਹ ਤੋਂ।"
+              "ਪਰੰਪਰਾਗਤ ਆਯੁਰਵੈਦਿਕ ਗਿਆਨ ਅਤੇ ਆਧੁਨਿਕ ਦੇਖਭਾਲ ਦਾ ਸੰਗਮ। ਡਾ. ਚਹਿਲ ਨੇ ਪੰਜਾਬ ਭਰ ਦੇ ਹਜ਼ਾਰਾਂ ਮਰੀਜ਼ਾਂ ਦਾ ਇਲਾਜ ਕੀਤਾ ਹੈ — ਲੱਛਣ ਨਹੀਂ, ਜੜ੍ਹ ਤੋਂ।"
             )}
           </p>
 

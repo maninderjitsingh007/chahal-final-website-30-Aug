@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { CLINIC } from "@/constants/clinic";
 import { useLang } from "@/context/LanguageContext";
 import AppointmentForm from "@/components/site/AppointmentForm";
-import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Clock, MessageCircle, Mail } from "lucide-react";
 
 export default function ContactPage() {
   const { t } = useLang();
@@ -65,6 +65,15 @@ export default function ContactPage() {
               <div>
                 <p className="text-xs uppercase tracking-[0.22em] text-forest-800/70">{t("Hours", "ਸਮਾਂ")}</p>
                 <p className="mt-1 font-medium text-forest-900">{t(CLINIC.hours_en, CLINIC.hours_pa)}</p>
+              </div>
+            </div>
+          </div>
+          <div className="rounded-3xl bg-white ring-1 ring-forest-900/10 p-6">
+            <div className="flex items-start gap-3">
+              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-forest-800 text-cream-50"><Mail className="h-5 w-5" /></span>
+              <div className="min-w-0">
+                <p className="text-xs uppercase tracking-[0.22em] text-forest-800/70">{t("Email", "ਈਮੇਲ")}</p>
+                <a href={`mailto:${CLINIC.email}`} data-testid="contact-email-link" className="mt-1 block font-semibold text-forest-900 break-all">{CLINIC.email}</a>
               </div>
             </div>
           </div>

@@ -26,7 +26,7 @@ export default function PhilosophySection() {
           <p className="mt-5 t-body text-cream-50/80 max-w-2xl">
             {t(
               "For over two decades, Chahal Ayurvedic Clinic has followed the classical principles of Ayurveda — treating each patient as an individual and each ailment at its origin.",
-              "ਦੋ ਦਹਾਕਿਆਂ ਤੋਂ ਵੱਧ, ਚਾਹਲ ਆਯੁਰਵੈਦਿਕ ਕਲੀਨਿਕ ਹਰ ਮਰੀਜ਼ ਦੀ ਖਾਸ ਦੇਖਭਾਲ ਅਤੇ ਹਰ ਬਿਮਾਰੀ ਦੀ ਜੜ੍ਹ ਤੱਕ ਪਹੁੰਚ ਕਰਦਾ ਹੈ।"
+              "ਦੋ ਦਹਾਕਿਆਂ ਤੋਂ ਵੱਧ, ਚਹਿਲ ਆਯੁਰਵੈਦਿਕ ਕਲੀਨਿਕ ਹਰ ਮਰੀਜ਼ ਦੀ ਖਾਸ ਦੇਖਭਾਲ ਅਤੇ ਹਰ ਬਿਮਾਰੀ ਦੀ ਜੜ੍ਹ ਤੱਕ ਪਹੁੰਚ ਕਰਦਾ ਹੈ।"
             )}
           </p>
         </Reveal>

@@ -16,7 +16,7 @@ export default function AboutPage() {
         <p className="mt-6 max-w-2xl text-lg text-forest-900/75 leading-relaxed">
           {t(
             "At Chahal Ayurvedic Clinic, we believe every illness has a natural counterpart in the earth's herbs. Our practice combines the classical wisdom of Ayurveda with the warmth of a Punjabi family — treating each patient with time, honesty, and care.",
-            "ਚਾਹਲ ਆਯੁਰਵੈਦਿਕ ਕਲੀਨਿਕ ਵਿੱਚ, ਅਸੀਂ ਵਿਸ਼ਵਾਸ ਕਰਦੇ ਹਾਂ ਕਿ ਹਰ ਬਿਮਾਰੀ ਦਾ ਇਲਾਜ ਕੁਦਰਤ ਵਿੱਚ ਮੌਜੂਦ ਹੈ। ਸਾਡੀ ਪ੍ਰੈਕਟਿਸ ਪਰੰਪਰਾਗਤ ਆਯੁਰਵੈਦਿਕ ਗਿਆਨ ਅਤੇ ਪੰਜਾਬੀ ਪਰਿਵਾਰਿਕ ਪਿਆਰ ਦਾ ਸੰਗਮ ਹੈ।"
+            "ਚਹਿਲ ਆਯੁਰਵੈਦਿਕ ਕਲੀਨਿਕ ਵਿੱਚ, ਅਸੀਂ ਵਿਸ਼ਵਾਸ ਕਰਦੇ ਹਾਂ ਕਿ ਹਰ ਬਿਮਾਰੀ ਦਾ ਇਲਾਜ ਕੁਦਰਤ ਵਿੱਚ ਮੌਜੂਦ ਹੈ। ਸਾਡੀ ਪ੍ਰੈਕਟਿਸ ਪਰੰਪਰਾਗਤ ਆਯੁਰਵੈਦਿਕ ਗਿਆਨ ਅਤੇ ਪੰਜਾਬੀ ਪਰਿਵਾਰਿਕ ਪਿਆਰ ਦਾ ਸੰਗਮ ਹੈ।"
           )}
         </p>
       </section>
@@ -33,11 +33,11 @@ export default function AboutPage() {
           <div className="mt-6 space-y-4 text-forest-900/75 leading-relaxed">
             <p>{t(
               "Dr. Rajgurbir Singh Chahal is a BAMS-qualified Ayurvedic physician with a lifelong dedication to authentic herbal medicine. He is known across the region for his careful diagnosis, gentle bedside manner, and formulas that address the root of a disease rather than only its symptoms.",
-              "ਡਾ. ਰਾਜਗੁਰਬੀਰ ਸਿੰਘ ਚਾਹਲ BAMS ਯੋਗ ਆਯੁਰਵੈਦਿਕ ਡਾਕਟਰ ਹਨ। ਉਹ ਅਸਲੀ ਹਰਬਲ ਦਵਾਈਆਂ ਲਈ ਸਮਰਪਿਤ ਹਨ ਅਤੇ ਬਿਮਾਰੀ ਦੀ ਜੜ੍ਹ ਤੱਕ ਪਹੁੰਚਣ ਲਈ ਜਾਣੇ ਜਾਂਦੇ ਹਨ।"
+              "ਡਾ. ਰਾਜਗੁਰਬੀਰ ਸਿੰਘ ਚਹਿਲ BAMS ਯੋਗ ਆਯੁਰਵੈਦਿਕ ਡਾਕਟਰ ਹਨ। ਉਹ ਅਸਲੀ ਹਰਬਲ ਦਵਾਈਆਂ ਲਈ ਸਮਰਪਿਤ ਹਨ ਅਤੇ ਬਿਮਾਰੀ ਦੀ ਜੜ੍ਹ ਤੱਕ ਪਹੁੰਚਣ ਲਈ ਜਾਣੇ ਜਾਂਦੇ ਹਨ।"
             )}</p>
             <p>{t(
               "Patients often come to Dr. Chahal after years of allopathic treatment for chronic issues — from PCOD and infertility to sugar, thyroid, joint pain, and liver disease — and find lasting relief through personalized Ayurvedic care.",
-              "ਬਹੁਤ ਸਾਰੇ ਮਰੀਜ਼ ਸਾਲਾਂ ਦੀ ਅੰਗਰੇਜ਼ੀ ਦਵਾਈ ਤੋਂ ਬਾਅਦ ਡਾ. ਚਾਹਲ ਕੋਲ ਆਉਂਦੇ ਹਨ ਅਤੇ ਹਰਬਲ ਇਲਾਜ ਨਾਲ ਸਥਾਈ ਰਾਹਤ ਪਾਉਂਦੇ ਹਨ।"
+              "ਬਹੁਤ ਸਾਰੇ ਮਰੀਜ਼ ਸਾਲਾਂ ਦੀ ਅੰਗਰੇਜ਼ੀ ਦਵਾਈ ਤੋਂ ਬਾਅਦ ਡਾ. ਚਹਿਲ ਕੋਲ ਆਉਂਦੇ ਹਨ ਅਤੇ ਹਰਬਲ ਇਲਾਜ ਨਾਲ ਸਥਾਈ ਰਾਹਤ ਪਾਉਂਦੇ ਹਨ।"
             )}</p>
           </div>
 

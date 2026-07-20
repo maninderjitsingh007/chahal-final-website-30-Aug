@@ -82,6 +82,7 @@ async def clinic_info():
         "phone2": "+91 99149-58159",
         "whatsapp": "+919417258159",
         "whatsapp2": "+919914958159",
+        "email": "chahal2006@yahoo.co.in",
         "tagline_pa": "ਹਰ ਬਿਮਾਰੀ ਦਾ ਕੁਦਰਤੀ ਇਲਾਜ",
         "tagline_en": "Natural Cure for Every Disease",
     }

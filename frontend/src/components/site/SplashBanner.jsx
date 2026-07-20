@@ -22,7 +22,7 @@ export default function SplashBanner() {
 
         <div className="relative z-10 h-full container-x flex flex-col justify-end pb-16 lg:pb-24 text-cream-50">
           <span className="inline-flex items-center gap-2 self-start rounded-full bg-cream-50/12 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-cream-50/95 ring-1 ring-cream-50/25 backdrop-blur-sm animate-fade-up">
-            {t("Chahal Ayurvedic Clinic • Malerkotla, Punjab", "ਚਾਹਲ ਆਯੁਰਵੈਦਿਕ ਕਲੀਨਿਕ • ਮਾਲੇਰਕੋਟਲਾ, ਪੰਜਾਬ")}
+            {t("Chahal Ayurvedic Clinic • Malerkotla, Punjab", "ਚਹਿਲ ਆਯੁਰਵੈਦਿਕ ਕਲੀਨਿਕ • ਮਾਲੇਰਕੋਟਲਾ, ਪੰਜਾਬ")}
           </span>
 
           <h1 className="mt-6 max-w-4xl h-hero font-display animate-fade-up" style={{ animationDelay: "80ms" }}>

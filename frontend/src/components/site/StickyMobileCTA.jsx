@@ -69,7 +69,10 @@ export default function StickyMobileCTA() {
   return (
     <div
       data-testid="sticky-mobile-cta"
-      className="lg:hidden fixed bottom-3 inset-x-3 z-40 rounded-2xl bg-white/95 backdrop-blur-md ring-1 ring-forest-800/10 shadow-lift p-2 grid grid-cols-3 gap-2"
+      className="lg:hidden fixed inset-x-3 z-[60] rounded-2xl bg-white/95 backdrop-blur-md ring-1 ring-forest-800/10 shadow-lift p-2 grid grid-cols-3 gap-2"
+      style={{
+        bottom: "calc(0.75rem + env(safe-area-inset-bottom, 0px))",
+      }}
     >
       <NumberPopover
         kind="call"

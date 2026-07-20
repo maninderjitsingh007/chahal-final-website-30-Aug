@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Phone, MessageCircle, X, Sparkles } from "lucide-react";
+import { Phone, MessageCircle, X, Sparkles, Mail } from "lucide-react";
 import { CLINIC } from "@/constants/clinic";
 import { useLang } from "@/context/LanguageContext";
 
@@ -27,7 +27,13 @@ export default function FloatingContactWidget() {
   ];
 
   return (
-    <div ref={ref} className="fixed z-40 bottom-24 right-4 lg:bottom-6 lg:right-6">
+    <div
+      ref={ref}
+      className="fixed z-[60] right-4 lg:right-6 bottom-24 lg:bottom-6"
+      style={{
+        paddingBottom: "env(safe-area-inset-bottom, 0px)",
+      }}
+    >
       {/* Panel */}
       <div
         data-testid="floating-contact-panel"
@@ -76,6 +82,23 @@ export default function FloatingContactWidget() {
               );
             })}
           </div>
+
+          <a
+            href={`mailto:${CLINIC.email}`}
+            data-testid="float-email"
+            onClick={() => setOpen(false)}
+            className="mt-2 flex items-center justify-between rounded-[14px] px-3 py-2.5 transition ring-1 bg-gold/10 ring-gold/25 hover:bg-gold/20"
+          >
+            <span className="flex items-center gap-2.5 min-w-0">
+              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-gold text-forest-900">
+                <Mail className="h-3.5 w-3.5" />
+              </span>
+              <span className="text-xs font-semibold text-forest-900 truncate">{CLINIC.email}</span>
+            </span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-gold-dark shrink-0">
+              {t("Email", "ਭੇਜੋ")}
+            </span>
+          </a>
         </div>
       </div>
 
