@@ -24,7 +24,7 @@ export default function AboutPage() {
       <section className="mt-14 container-x grid lg:grid-cols-5 gap-10 items-start">
         <div className="lg:col-span-2">
           <div className="rounded-[2rem] overflow-hidden ring-1 ring-forest-900/10">
-            <img src={IMAGES.consultation} alt="Doctor consultation" className="h-[560px] w-full object-cover" />
+            <img src={IMAGES.consultation} alt="Doctor consultation" loading="lazy" className="h-[560px] w-full object-cover" />
           </div>
         </div>
         <div className="lg:col-span-3">
