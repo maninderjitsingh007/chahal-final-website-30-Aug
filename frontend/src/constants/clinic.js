@@ -125,7 +125,7 @@ export const IMAGES = {
   hero: "https://images.pexels.com/photos/33410911/pexels-photo-33410911.jpeg",
   herbsFlat: "https://images.pexels.com/photos/7615621/pexels-photo-7615621.jpeg",
   neem: "https://images.pexels.com/photos/28511113/pexels-photo-28511113.jpeg",
-  consultation: "https://customer-assets.emergentagent.com/job_b2eabf4b-eac4-4ad0-b0bb-abb5f2d8feba/artifacts/nmon4qt7_Dr.%20Rajgurbir%20Singh%20Chahal%20%284%29.jpg",
+  consultation: "https://static.prod-images.emergentagent.com/jobs/b2eabf4b-eac4-4ad0-b0bb-abb5f2d8feba/images/9d3c58a3341fe2832ef8e5774094a925ac46fc725496aae528a3ff7e3cac2ced.webp",
   clinic: "https://images.pexels.com/photos/5619462/pexels-photo-5619462.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   bottles: "https://images.pexels.com/photos/7526013/pexels-photo-7526013.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   meditation: "https://images.pexels.com/photos/6246200/pexels-photo-6246200.jpeg",
