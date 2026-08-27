@@ -29,7 +29,7 @@ export default function FloatingContactWidget() {
   return (
     <div
       ref={ref}
-      className="fixed z-[60] right-4 lg:right-6 bottom-24 lg:bottom-6"
+      className="fixed z-[60] right-4 lg:right-6 bottom-24 lg:bottom-6 pointer-events-none"
       style={{
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
@@ -108,7 +108,7 @@ export default function FloatingContactWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close contact widget" : "Open contact widget"}
         data-testid="floating-contact-toggle"
-        className={`relative flex items-center gap-2 rounded-full px-4 py-3 shadow-lift transition-all duration-300 will-change-transform hover:-translate-y-0.5 active:scale-95 ${
+        className={`pointer-events-auto relative flex items-center gap-2 rounded-full px-4 py-3 shadow-lift transition-all duration-300 will-change-transform hover:-translate-y-0.5 active:scale-95 ${
           open ? "bg-forest-800 text-cream-50" : "bg-[#25D366] text-white hover:bg-[#1EBE5D]"
         }`}
       >
