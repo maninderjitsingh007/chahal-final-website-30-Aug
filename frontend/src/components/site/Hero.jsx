@@ -4,6 +4,7 @@ import { ArrowRight, ShieldCheck, Sprout, Leaf } from "lucide-react";
 import { CLINIC, IMAGES } from "@/constants/clinic";
 import { useLang } from "@/context/LanguageContext";
 import ContactMenu from "@/components/site/ContactMenu";
+import BrandMark from "@/components/site/BrandMark";
 
 export default function Hero() {
   const { t } = useLang();
@@ -36,19 +37,15 @@ export default function Hero() {
         <Leaf style={p2} className="absolute bottom-10 right-[22%] h-14 w-14 text-forest-600/20 animate-float-x" />
       </div>
 
+      <div className="container-x">
+        {/* Brand banner — full-width, centered, at the very top */}
+        <div className="mb-12 lg:mb-16">
+          <BrandMark />
+        </div>
+      </div>
+
       <div className="container-x grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
         <div className="lg:col-span-7">
-          {/* Brand banner */}
-          <div className="mb-8 text-center lg:text-left animate-fade-up">
-            <p className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-forest-900">
-              Chahal <span className="text-gold-dark">Ayurvedic</span>
-            </p>
-            <p className="mt-1.5 font-punjabi text-2xl sm:text-3xl lg:text-4xl font-bold text-forest-800">
-              <span className="text-gold-dark">ਚਹਿਲ</span> ਆਯੁਰਵੈਦਿਕ
-            </p>
-            <span className="mt-3 inline-block h-[3px] w-16 rounded-full bg-gradient-to-r from-gold to-gold-dark" />
-          </div>
-
           <div className="animate-fade-up" style={{ animationDelay: "60ms" }}>
             <span className="eyebrow">
               <Sprout className="h-3.5 w-3.5" /> {t("A lineage of natural healing", "ਕੁਦਰਤੀ ਇਲਾਜ ਦੀ ਵਿਰਾਸਤ")}

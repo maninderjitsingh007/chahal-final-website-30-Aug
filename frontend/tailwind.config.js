@@ -19,6 +19,7 @@ module.exports = {
     extend: {
       fontFamily: {
         display: ["'Plus Jakarta Sans'", "ui-sans-serif", "system-ui", "sans-serif"],
+        brand:   ["Fraunces", "'Playfair Display'", "Georgia", "serif"],
         serif: ["'Plus Jakarta Sans'", "ui-sans-serif", "system-ui", "sans-serif"],
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         punjabi: ["'Noto Sans Gurmukhi'", "system-ui", "sans-serif"],
