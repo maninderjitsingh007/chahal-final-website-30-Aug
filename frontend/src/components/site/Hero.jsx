@@ -94,7 +94,7 @@ export default function Hero() {
           <div className="mt-12 grid grid-cols-3 gap-4 max-w-lg animate-fade-up" style={{ animationDelay: "360ms" }}>
             {[
               { k: "10k+", v: t("Patients Healed", "ਮਰੀਜ਼ ਠੀਕ ਹੋਏ") },
-              { k: "15+",  v: t("Years of Practice", "ਸਾਲਾਂ ਦਾ ਤਜ਼ਰਬਾ") },
+              { k: "10+",  v: t("Years of Practice", "ਸਾਲਾਂ ਦਾ ਤਜ਼ਰਬਾ") },
               { k: "100%", v: t("Natural & Safe", "ਕੁਦਰਤੀ ਅਤੇ ਸੁਰੱਖਿਅਤ") },
             ].map((s) => (
               <div key={s.k} className="card-glass px-4 py-3">

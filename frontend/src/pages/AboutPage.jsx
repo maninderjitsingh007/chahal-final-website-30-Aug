@@ -44,7 +44,7 @@ export default function AboutPage() {
           <div className="mt-8 grid sm:grid-cols-2 gap-4">
             {[
               { icon: GraduationCap, t1: "BAMS", t2: "Bachelor of Ayurvedic Medicine & Surgery" },
-              { icon: Award, t1: "15+ Years", t2: "Of dedicated practice" },
+              { icon: Award, t1: "10+ Years", t2: "Of dedicated practice" },
               { icon: HeartPulse, t1: "10,000+", t2: "Patients treated across Punjab" },
               { icon: Sparkles, t1: "Personalized", t2: "Herbal & lifestyle protocols" },
             ].map(({ icon: Icon, t1, t2 }) => (

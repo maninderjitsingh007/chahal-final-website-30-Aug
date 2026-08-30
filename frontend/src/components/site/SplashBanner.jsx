@@ -62,7 +62,7 @@ export default function SplashBanner() {
             <div className="mx-auto rounded-t-2xl bg-cream-50/12 backdrop-blur-md ring-1 ring-cream-50/20 px-5 py-3 flex flex-wrap items-center justify-between gap-3 text-cream-50/90 text-xs sm:text-sm">
               <span className="font-semibold">{CLINIC.doctor_en} <span className="text-cream-50/60">({CLINIC.qualification})</span></span>
               <span className="hidden sm:inline text-cream-50/60">|</span>
-              <span>{t("15+ years of authentic Ayurvedic practice", "15+ ਸਾਲਾਂ ਦਾ ਅਸਲੀ ਆਯੁਰਵੈਦਿਕ ਤਜ਼ਰਬਾ")}</span>
+              <span>{t("10+ years of authentic Ayurvedic practice", "10+ ਸਾਲਾਂ ਦਾ ਅਸਲੀ ਆਯੁਰਵੈਦਿਕ ਤਜ਼ਰਬਾ")}</span>
               <span className="hidden sm:inline text-cream-50/60">|</span>
               <div className="flex items-center gap-3 font-semibold">
                 <a href={`tel:${CLINIC.phone_tel}`} data-testid="splash-call-link-1" className="text-gold-light hover:text-cream-50">📞 {CLINIC.phone_display}</a>

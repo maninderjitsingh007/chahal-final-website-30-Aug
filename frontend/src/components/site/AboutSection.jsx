@@ -17,7 +17,7 @@ export default function AboutSection() {
           <div className="hidden lg:block absolute -bottom-6 -right-6 card-glass p-5 max-w-[240px]">
             <div className="flex items-center gap-3">
               <div className="grid h-10 w-10 place-items-center rounded-2xl bg-gold/15 text-gold-dark"><Award className="h-5 w-5" /></div>
-              <p className="text-sm font-semibold text-forest-900 leading-tight">{t("15+ years of Ayurvedic practice", "15+ ਸਾਲਾਂ ਦਾ ਆਯੁਰਵੈਦਿਕ ਤਜ਼ਰਬਾ")}</p>
+              <p className="text-sm font-semibold text-forest-900 leading-tight">{t("10+ years of Ayurvedic practice", "10+ ਸਾਲਾਂ ਦਾ ਆਯੁਰਵੈਦਿਕ ਤਜ਼ਰਬਾ")}</p>
             </div>
           </div>
         </Reveal>
